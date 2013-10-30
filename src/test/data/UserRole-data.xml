@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="userRole" class="com.gdit.framework.manager.sysmanage.roleauth.vo.UserRole">
+		<property name="userRoleId">
+			<value>USER_ROLE_ID</value>
+		</property>
+		<property name="userId">
+			<value>USER_ID</value>
+		</property>
+		<property name="roleId">
+			<value>ROLE_ID</value>
+		</property>
+		<property name="fcu">
+			<value>hbin</value>
+		</property>
+		<property name="lcu">
+			<value>hbin</value>
+		</property>
+	</bean>
+</beans>
