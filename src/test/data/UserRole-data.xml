@@ -6,7 +6,7 @@
 		<property name="userRoleId">
 			<value>USER_ROLE_ID</value>
 		</property>
-		<property name="userId">
+		<property name="userId">  
 			<value>USER_ID</value>
 		</property>
 		<property name="roleId">
@@ -16,7 +16,7 @@
 			<value>hbin</value>
 		</property>
 		<property name="lcu">
-			<value>hbin22222222</value>
+			<value>hbin2222</value>
 		</property>
 	</bean>
 </beans>
