@@ -8,6 +8,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.gdit.framework.common.vo.ResultVO;
 import com.gdit.framework.manager.sysmanage.roleauth.mapper.RoleMapper;
@@ -38,8 +39,16 @@ public class RoleServiceImpl implements RoleService {
 		}
 	}
 	
+	@Transactional
 	public ResultVO deleteRoleByRoleId(String roleId){
 		try {
+			/***
+			 * 如果有用户拥有该角色则一并删除
+			 */
+			roleMapper.deleteUserRoleRelationByRole(roleId);
+			roleMapper.deleteRoleAuthRelationByRole(roleId);
+			//调存储过程处理用户菜单信息表
+			
 			roleMapper.deleteRoleByRoleId(roleId);
 			return ResultVO.success("角色删除成功");
 		} catch (Exception e) {
@@ -96,6 +105,17 @@ public class RoleServiceImpl implements RoleService {
 		} catch (Exception e) {
 			LOG.error("查询角色对象异常：", e);
 			return null;
+		}
+	}
+
+	@Override
+	public ResultVO deleteUserRoleRelationByRole(String roleId) {
+		try {
+			roleMapper.deleteUserRoleRelationByRole(roleId);
+			return ResultVO.success("删除用户角色关系成功");
+		} catch (Exception e) {
+			LOG.error("删除用户角色关系异常：", e);
+			return ResultVO.failure("删除用户角色关系异常");
 		}
 	}
 	

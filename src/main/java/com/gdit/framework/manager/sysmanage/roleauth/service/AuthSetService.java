@@ -10,9 +10,10 @@ public interface AuthSetService {
 
 	public void menuRoleDel( String menuCode , String[] roleIds , String optUserName ) throws ServiceException;
 
+	
+	// 为菜单添加、删除用户
 	public void menuUserDel( String menuCode , String[] userIds , String optUserName ) throws ServiceException;
 
-	// 为菜单添加、删除用户
 	public void menuUserAdd( String menuCode , AuthList authVOList , String optUserName ) throws ServiceException;
 
 	// 为角色添加删除菜单
@@ -20,6 +21,7 @@ public interface AuthSetService {
 
 	public void roleMenuDel( String roleId , String[] menuCodes , String optUserName ) throws ServiceException;
 
+	// 为角色添加删除用户
 	public void roleUserAdd( String roleId , String[] userIds , String optUserName ) throws ServiceException;
 
 	public void roleUserDel( String roleId , String[] userIds , String optUserName ) throws ServiceException;

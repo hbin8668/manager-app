@@ -56,4 +56,11 @@ public interface RoleService{
 	 */
 	public Role queryRoleByRoleId(String roleId) ;
 	
+	/**
+	 * 根据用户角色
+	 * @param roleId
+	 * @return
+	 */
+	public ResultVO deleteUserRoleRelationByRole(String roleId);
+	
 }

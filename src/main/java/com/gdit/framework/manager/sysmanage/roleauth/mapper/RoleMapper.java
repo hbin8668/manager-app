@@ -60,5 +60,15 @@ public interface RoleMapper extends SupperMapper{
 	 * @param roleId Role主键
 	 */
 	public Role queryRoleByRoleId(String roleId) ;
+	/**
+	 * 删除用户权限关系
+	 * @param roleId Role主键
+	 */
+	public int deleteUserRoleRelationByRole(String roleId);
+	/**
+	 * 删除权限权限关系
+	 * @param roleId Role主键
+	 */
+	public int deleteRoleAuthRelationByRole(String roleId);
 	
 }
